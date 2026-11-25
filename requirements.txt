@@ -1,3 +1,1 @@
-Flask
-gunicorn
 pip install gunicorn
