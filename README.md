@@ -19,6 +19,12 @@ Esse projeto foi feito como parte de uma atividade do curso Técnico em Desenvol
 - Relaciona as consultas com os pacientes.
 - Possui uma API que mostra os pacientes em formato JSON.
 
+ ## Como funciona a pesquisa
+
+A pesquisa de pacientes foi feita utilizando Python. O sistema percorre a lista de pacientes e compara os nomes com o que foi digitado na busca.
+
+Utilizei uma estrutura de repetição while e uma condição if para verificar os resultados. Também usei lower() para que a pesquisa funcione mesmo quando são utilizadas letras maiúsculas ou minúsculas.
+
 ## Tecnologias que utilizei
 
 - Python
