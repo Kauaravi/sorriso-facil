@@ -1,83 +1,112 @@
-
 # 🦷 Sorriso Fácil
 
 ## Sobre o projeto
 
-O Sorriso Fácil é um sistema web desenvolvido para auxiliar na organização de um consultório odontológico. A ideia do projeto é facilitar o gerenciamento de pacientes e consultas, reunindo informações importantes em um único lugar.
+O Sorriso Fácil é um sistema que desenvolvi com a ideia de ajudar na organização de um consultório odontológico. Nele, é possível cadastrar pacientes, organizar consultas e consultar as informações de maneira simples.
 
-O sistema foi desenvolvido como parte de uma atividade prática do curso Técnico em Desenvolvimento de Sistemas, utilizando tecnologias que foram estudadas durante o curso.
+Esse projeto foi feito como parte de uma atividade do curso Técnico em Desenvolvimento de Sistemas. Durante o desenvolvimento, pude colocar em prática alguns conhecimentos que aprendi nas aulas.
 
-## Funcionalidades
+## O que o sistema faz?
 
-- Página inicial com resumo do sistema.
-- Cadastro de pacientes.
-- Listagem e pesquisa de pacientes.
-- Edição e exclusão de pacientes.
-- Cadastro de consultas odontológicas.
-- Listagem de consultas.
-- Edição e exclusão de consultas.
-- Pesquisa de pacientes por nome utilizando Python.
-- API que disponibiliza os pacientes em formato JSON.
+- Mostra uma página inicial com informações do sistema.
+- Permite cadastrar pacientes.
+- Mostra a lista de pacientes cadastrados.
+- Permite pesquisar pacientes pelo nome.
+- Permite editar e excluir pacientes.
+- Permite cadastrar consultas.
+- Mostra as consultas cadastradas.
+- Permite editar e excluir consultas.
+- Relaciona as consultas com os pacientes.
+- Possui uma API que mostra os pacientes em formato JSON.
 
-## Tecnologias utilizadas
+## Tecnologias que utilizei
 
 - Python
 - Flask
 - SQLite
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 - Jinja2
 
 ## Banco de dados
 
-O sistema utiliza SQLite para armazenar os dados.
+Para guardar as informações, utilizei o SQLite.
 
-O banco possui duas tabelas principais:
+O banco de dados possui duas tabelas principais:
 
-### Pacientes
+**Pacientes:** guarda informações como nome, telefone e e-mail.
 
-Armazena os dados dos pacientes cadastrados, como nome, telefone e e-mail.
+**Consultas:** guarda informações como data, horário, procedimento e status da consulta.
 
-### Consultas
-
-Armazena as informações dos agendamentos, como data, horário, procedimento e status da consulta.
-
-As tabelas estão relacionadas. Um paciente pode possuir várias consultas cadastradas.
+As duas tabelas são relacionadas, pois um mesmo paciente pode ter várias consultas cadastradas.
 
 ## Como executar o projeto
 
-1. Instale o Python no computador.
-2. Abra a pasta do projeto no Visual Studio Code.
-3. Abra o terminal.
-4. Instale as dependências com o comando:
+Para abrir o sistema no computador, é necessário seguir alguns passos:
 
-   pip install -r requirements.txt
+**1.** Ter o Python instalado.
 
-5. Execute o sistema:
+**2.** Abrir a pasta do projeto no Visual Studio Code.
 
-   python app.py
+**3.** Abrir o terminal e criar o ambiente virtual:
 
-6. Abra o navegador e acesse:
+```bash
+python -m venv venv
+```
 
-   http://127.0.0.1:5000/
+**4.** Ativar o ambiente virtual:
+
+```bash
+venv\Scripts\activate
+```
+
+**5.** Instalar as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+**6.** Iniciar o sistema:
+
+```bash
+python app.py
+```
+
+**7.** Abrir o navegador e acessar:
+
+http://127.0.0.1:5000/
 
 ## API
 
-O projeto possui uma rota que disponibiliza os pacientes em formato JSON.
+Também desenvolvi uma rota que permite visualizar os pacientes cadastrados em formato JSON.
 
-Endpoint:
+O endereço da rota é:
 
+```text
 /api/pacientes
+```
 
-Para testar localmente:
+Para testar no computador:
 
 http://127.0.0.1:5000/api/pacientes
 
-## Objetivo
+## Acesso ao projeto
 
-O objetivo do projeto é aplicar na prática os conhecimentos de desenvolvimento web, programação em Python, banco de dados e organização de sistemas, criando uma aplicação que simula uma necessidade real da área da saúde.
+O sistema está publicado na internet e pode ser acessado pelo link:
+
+https://sorriso-facil.onrender.com
+
+O código também está disponível no GitHub:
+
+https://github.com/Kauaravi/sorriso-facil
+
+## O que aprendi com esse projeto
+
+Durante a criação do Sorriso Fácil, consegui praticar melhor a programação em Python, a criação de páginas com HTML e CSS e o uso de banco de dados.
+
+Também aprendi um pouco mais sobre como conectar o sistema ao banco de dados, organizar as funções e publicar um projeto na internet.
 
 ## Observação
 
-Este projeto possui finalidade educacional e utiliza dados fictícios. Não deve ser utilizado para armazenar informações reais de pacientes.
+Este projeto foi desenvolvido apenas para fins de estudo e utiliza dados fictícios. Por isso, não deve ser utilizado para guardar informações reais de pacientes.
