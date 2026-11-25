@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %}Início | Sorriso Fácil{% endblock %}
+
+{% block conteudo %}
+
+    <section class="inicio">
+        <h2>Bem-vindo ao Sorriso Fácil!</h2>
+
+        <p>
+            Organize os pacientes e acompanhe os atendimentos
+            da sua clínica em um só lugar.
+        </p>
+    </section>
+
+    <section class="resumo">
+
+        <h3>Resumo da clínica</h3>
+
+        <div class="cartoes">
+
+            <div class="cartao">
+                <h4>Pacientes cadastrados</h4>
+                <p>{{ total_pacientes }}</p>
+                <a href="{{ url_for('listar_pacientes') }}">
+                    Ver pacientes
+                </a>
+            </div>
+
+            <div class="cartao">
+                <h4>Consultas registradas</h4>
+                <p>{{ total_consultas }}</p>
+                <a href="{{ url_for('listar_consultas') }}">
+                    Ver consultas
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block titulo %}Sorriso Fácil{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+    <div class="marca">
+        <div class="logo-dente">
+            <span>🦷</span>
+            <span class="brilho">✦</span>
+        </div>
+
+        <div class="marca-texto">
+            <h1>Sorriso Fácil</h1>
+            <p>GESTÃO ODONTOLÓGICA</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="{{ url_for('inicio') }}">Início</a>
+        <a href="{{ url_for('listar_pacientes') }}">Pacientes</a>
+        <a href="{{ url_for('listar_consultas') }}">Consultas</a>
+    </nav>
+</header>
+
+    <main>
+
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% for categoria, mensagem in mensagens %}
+                <p>{{ mensagem }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        {% block conteudo %}{% endblock %}
+
+    </main>
+
+</body>
+</html>

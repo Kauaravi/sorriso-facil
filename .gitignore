@@ -1,0 +1,13 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Banco de dados local
+clinica.db
+*.db
+
+# Arquivos privados
+.env
+
+# Configurações do VS Code
+.vscode/

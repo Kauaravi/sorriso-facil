@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block titulo %}Consultas | Sorriso Fácil{% endblock %}
+
+{% block conteudo %}
+
+    <h2>Consultas cadastradas</h2>
+
+    <p>Organize os atendimentos e acompanhe os agendamentos da clínica.</p>
+
+    <a href="{{ url_for('nova_consulta') }}">
+        + Cadastrar consulta
+    </a>
+
+    <form method="GET" action="{{ url_for('listar_consultas') }}">
+        <input
+            type="text"
+            name="busca"
+            placeholder="Pesquisar paciente ou procedimento"
+            value="{{ busca }}"
+        >
+
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    {% if consultas %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Paciente</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Procedimento</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for consulta in consultas %}
+                    <tr>
+                        <td>{{ consulta.nome_paciente }}</td>
+                        <td>{{ consulta.data }}</td>
+                        <td>{{ consulta.horario }}</td>
+                        <td>{{ consulta.procedimento }}</td>
+                        <td>{{ consulta.status }}</td>
+
+                        <td>
+                            <a href="{{ url_for('editar_consulta', id=consulta.id) }}">
+                                Editar
+                            </a>
+
+                            <form
+                                method="POST"
+                                action="{{ url_for('excluir_consulta', id=consulta.id) }}"
+                            >
+                                <button
+                                    type="submit"
+                                    onclick="return confirm('Deseja excluir esta consulta?')"
+                                >
+                                    Excluir
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+
+        <p>Nenhuma consulta encontrada.</p>
+
+    {% endif %}
+
+{% endblock %}

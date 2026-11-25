@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block titulo %}Pacientes | Sorriso Fácil{% endblock %}
+
+{% block conteudo %}
+
+    <h2>Pacientes cadastrados</h2>
+
+    <p>Consulte, pesquise e organize os pacientes da clínica.</p>
+
+    <a href="{{ url_for('novo_paciente') }}">
+        + Cadastrar paciente
+    </a>
+
+    <form method="GET" action="{{ url_for('listar_pacientes') }}">
+        <input
+            type="text"
+            name="busca"
+            placeholder="Pesquisar pelo nome"
+            value="{{ busca }}"
+        >
+
+        <button type="submit">Pesquisar</button>
+    </form>
+
+    {% if pacientes %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for paciente in pacientes %}
+                    <tr>
+                        <td>{{ paciente.nome }}</td>
+                        <td>{{ paciente.telefone }}</td>
+                        <td>{{ paciente.email or "Não informado" }}</td>
+
+                        <td>
+                            <a href="{{ url_for('editar_paciente', id=paciente.id) }}">
+                                Editar
+                            </a>
+
+                            <form
+                                method="POST"
+                                action="{{ url_for('excluir_paciente', id=paciente.id) }}"
+                            >
+                                <button
+                                    type="submit"
+                                    onclick="return confirm('Deseja realmente excluir este paciente?')"
+                                >
+                                    Excluir
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+
+        <p>Nenhum paciente encontrado.</p>
+
+    {% endif %}
+
+{% endblock %}
